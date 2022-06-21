@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useForm, Controller } from "react-hook-form";
 import TextField from '@mui/material/TextField';
 import PhoneInput from "react-phone-number-input";
@@ -8,9 +8,11 @@ import { validContactRules } from '../util';
 import { IconButton } from '@mui/material';
 import ResetIcon from '@mui/icons-material/Restore';
 
-const ContactForm = ({ loading, onSubmit, addForm }) => {
+import '../css/ContactForm.css';
+
+const ContactForm = ({ loading, onSubmit, addForm, defaultValue }) => {
   const { control, register, handleSubmit, formState: { errors, isValid }, setValue, reset } = useForm({
-    defaultValues: {
+    defaultValues: defaultValue ?? {
       name: '',
       phoneNumber: '',
       email: '',
@@ -35,7 +37,7 @@ const ContactForm = ({ loading, onSubmit, addForm }) => {
   return (
     <div className='contactFormWrapper'>
       <div className='titleWrapper'>
-        <p className='formTitle'>Add a contact</p>
+        <p className='formTitle'>{addForm ? 'Add' : 'Edit'} a contact</p>
         <IconButton onClick={handleResetForm}>
           <ResetIcon />
         </IconButton>

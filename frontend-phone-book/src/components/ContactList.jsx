@@ -59,11 +59,16 @@ const ContactList = () => {
       });
   }, [getContacts]);
 
-  const editContact = useCallback((id) => {
+  const editContact = useCallback((newData, id) => {
     setLoading(true);
     axios({
       method: "POST",
       url:`/contact/edit/${id}/`,
+      data: {
+        name: newData.name ?? '',
+        phone_number: newData.phone_number ?? '',
+        email: newData.email ?? '',
+      }
     })
       .then((_response) => {
         successMessage('Contact updated successfully!');
@@ -79,10 +84,6 @@ const ContactList = () => {
         }
       });
   }, [getContacts]);
-
-  const handleEditContact = useCallback((contact) => {
-    console.log(contact);
-  }, []);
 
   const deleteContact = useCallback((id) => {
     setLoading(true);
@@ -104,6 +105,10 @@ const ContactList = () => {
         }
       });
   },  [getContacts]);
+
+  const handleEditContact = useCallback((newContact, id) => {
+    editContact(newContact, id);
+  }, [editContact]);
 
   useEffect(() => {
     getContacts();
