@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", renderFrontend, name="front"),
     path("contacts/", get_contacts, name="contacts"),
-    path("contacts/<int:id>/", delete_contact, name="delete"),
     path("contact/", add_contact, name="add"),
-    path("contact/<int:id>/", edit_contact, name="edit"),
+    path("contact/edit/<int:id>/", edit_contact, name="edit"),
+    path("contact/delete/<int:id>/", delete_contact, name="delete"),
 ]
