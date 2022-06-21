@@ -5,6 +5,7 @@ import ContactItem from './ContactItem';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { successMessage, errorMessage } from '../util';
+import ContactForm from './ContactForm';
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
@@ -24,6 +25,7 @@ const ContactList = () => {
       .catch((error) => {
         if (error.response) {
             errorMessage('Ups! Something went wrong!');
+            setLoading(false);
             console.log(error.response);
             console.log(error.response.status);
             console.log(error.response.headers);
@@ -49,6 +51,7 @@ const ContactList = () => {
       .catch((error) => {
         if (error.response) {
           errorMessage('Ups! Something went wrong!');
+          setLoading(false);
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -69,6 +72,7 @@ const ContactList = () => {
       .catch((error) => {
         if (error.response) {
           errorMessage('Ups! Something went wrong!');
+          setLoading(false);
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -92,6 +96,8 @@ const ContactList = () => {
       })
       .catch((error) => {
         if (error.response) {
+          errorMessage('Ups! Something went wrong!');
+          setLoading(false);
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -104,20 +110,28 @@ const ContactList = () => {
   }, [getContacts]);
 
   return (
-    <div className='contactList'>
-    {
-      loading && <CircularProgress />
-    }
-    {
-      contacts.map((contact, index) => 
-        <ContactItem 
-          contact={contact} 
-          onEdit={handleEditContact} 
-          onDelete={deleteContact} 
-        />
-      )
-    }
-    </div>
+    <>
+      <ContactForm
+        loading={loading}
+        onSubmit={addContact}
+        addForm={true}
+      />
+      <div className='contactList'>
+      {
+        loading ? 
+        <CircularProgress style={{margin: '8px auto'}} size={24} color='secondary' /> : (
+          contacts.map((contact, index) => 
+            <ContactItem 
+              key={index}
+              contact={contact} 
+              onEdit={handleEditContact} 
+              onDelete={deleteContact} 
+            />
+          )
+        )
+      }
+      </div>
+    </>
   );
 };
 
