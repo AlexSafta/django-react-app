@@ -26,13 +26,14 @@ const ContactItem = ({ contact, onEdit, onDelete }) => {
   }, [expanded]);
 
   return (
+    <div className='contactItemWrapper'>
     <div className='contactItem'>
       <div className='contactDetails'>
         <div className='contactHeader'>
           <p className='contactName'>{contact.name}</p>
-          <p className='contactPhoneNumber'>{contact.phone_number}</p>
+          <p className='contactEmail'>{contact.email}</p>
         </div>
-        <p className='contactEmail'>{contact.email}</p>
+        <p className='contactPhoneNumber'>{contact.phone_number}</p>
       </div>
       <div className='contactButtons'>
         <IconButton onClick={handleCopy} aria-label="copy">
@@ -45,6 +46,7 @@ const ContactItem = ({ contact, onEdit, onDelete }) => {
           <DeleteIcon />
         </IconButton>
       </div>
+       </div>
       {expanded && <ContactForm 
         defaultValue={{
           name: contact.name,

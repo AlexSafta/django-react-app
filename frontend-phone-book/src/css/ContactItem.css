@@ -1,3 +1,15 @@
+.contactItemWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #C9C3C7;
+  background-color: white;
+  margin: 8px 0;
+}
+
 .contactItem {
   display: flex;
   flex-direction: row;
@@ -5,10 +17,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px #C9C3C7;
-  background-color: white;
-  margin: 8px 0;
 }
 
 .contactDetails {
@@ -26,14 +34,14 @@
   align-items: center;
 }
 
-.contactPhoneNumber {
+.contactEmail {
   font-size: 14px;
   visibility: hidden;
   transition: visibility 0.2s ease-in-out;
   margin: 0;
 }
 
-.contactHeader:hover .contactPhoneNumber {
+.contactHeader:hover .contactEmail {
   visibility: visible;
 }
 
@@ -43,7 +51,7 @@
   margin: 0 8px 0 0;
 }
 
-.contactEmail {
+.contactPhoneNumber {
   font-size: 14px;
   margin: 0;
 }
