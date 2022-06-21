@@ -1,7 +1,5 @@
 # Django React Application
 
-## Mainly features
-
 Django-ReactJS web application made to support daily contact management. You can list all the contacts from your virtual phone book, add a new contact, edit or delete an existing one.
 
 ### Sneak peak
