@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
 import axios from "axios";
+
+import ContactItem from './ContactItem';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { successMessage, errorMessage } from '../util';
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
@@ -19,6 +23,7 @@ const ContactList = () => {
       })
       .catch((error) => {
         if (error.response) {
+            errorMessage('Ups! Something went wrong!');
             console.log(error.response);
             console.log(error.response.status);
             console.log(error.response.headers);
@@ -38,10 +43,12 @@ const ContactList = () => {
       }
     })
       .then((_response) => {
+        successMessage('Contact added successfully!');
         getContacts();
       })
       .catch((error) => {
         if (error.response) {
+          errorMessage('Ups! Something went wrong!');
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -56,16 +63,22 @@ const ContactList = () => {
       url:`/contact/edit/${id}/`,
     })
       .then((_response) => {
+        successMessage('Contact updated successfully!');
         getContacts();
       })
       .catch((error) => {
         if (error.response) {
+          errorMessage('Ups! Something went wrong!');
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
         }
       });
   }, [getContacts]);
+
+  const handleEditContact = useCallback((contact) => {
+    console.log(contact);
+  }, []);
 
   const deleteContact = useCallback((id) => {
     setLoading(true);
@@ -74,6 +87,7 @@ const ContactList = () => {
       url:`/contact/delete/${id}/`,
     })
       .then((_response) => {
+        successMessage('Contact deleted successfully!');
         getContacts();
       })
       .catch((error) => {
@@ -90,8 +104,19 @@ const ContactList = () => {
   }, [getContacts]);
 
   return (
-    <div>
-      ContactList
+    <div className='contactList'>
+    {
+      loading && <CircularProgress />
+    }
+    {
+      contacts.map((contact, index) => 
+        <ContactItem 
+          contact={contact} 
+          onEdit={handleEditContact} 
+          onDelete={deleteContact} 
+        />
+      )
+    }
     </div>
   );
 };
