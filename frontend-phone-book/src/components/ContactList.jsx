@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
 
 import ContactItem from './ContactItem';
+import ContactForm from './ContactForm';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { successMessage, errorMessage } from '../util';
-import ContactForm from './ContactForm';
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
@@ -117,7 +117,6 @@ const ContactList = () => {
   return (
     <>
       <ContactForm
-        loading={loading}
         onSubmit={addContact}
         addForm={true}
       />

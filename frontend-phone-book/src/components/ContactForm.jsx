@@ -1,17 +1,24 @@
 import React, { useCallback } from 'react';
 import { useForm, Controller } from "react-hook-form";
-import TextField from '@mui/material/TextField';
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
-import { validContactRules } from '../util';
 import { IconButton } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import ResetIcon from '@mui/icons-material/Restore';
 
+import { validContactRules } from '../util';
 import '../css/ContactForm.css';
 
-const ContactForm = ({ loading, onSubmit, addForm, defaultValue }) => {
-  const { control, register, handleSubmit, formState: { errors, isValid }, setValue, reset } = useForm({
+const ContactForm = ({ onSubmit, addForm, defaultValue }) => {
+  const { 
+    control, 
+    formState: { errors, isValid }, 
+    handleSubmit, 
+    register, 
+    reset, 
+    setValue 
+  } = useForm({
     defaultValues: defaultValue ?? {
       name: '',
       phoneNumber: '',

@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from 'react';
+
+import ContactForm from './ContactForm';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import CopyIcon from '@mui/icons-material/CopyAllRounded';
 
 import { successMessage, errorMessage } from '../util';
-import ContactForm from './ContactForm';
-
 import '../css/ContactItem.css';
 
 const ContactItem = ({ contact, onEdit, onDelete }) => {
