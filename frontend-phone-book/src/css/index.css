@@ -14,7 +14,7 @@ code {
 
 /* Header */
 .header {
-  background-color: #F7F0F5;
+  background-color: white;
   text-align: center;
   padding: 16px 0;
   box-shadow: 2px 2px 10px #B8B2B6;
@@ -26,16 +26,83 @@ code {
   margin: 0;
 }
 
+/* ContactForm.js */
+.contactFormWrapper {
+  width: 50%;
+  background-color: white;
+  margin: 30px auto 20px auto;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+.formTitle {
+  text-align: center;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactForm .submitButton {
+  background: #f5ba13;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+  margin-top: 16px;
+}
+
+.MuiFormControl-root {
+  margin: 8px 0 !important;
+}
+
+.PhoneInput {
+  width: 100%;
+  margin: 8px 0 !important;
+}
+
+.PhoneInput .PhoneInputCountry {
+  margin-right: 8px;
+}
+
+.PhoneInput .PhoneInputInput {
+  cursor: text;
+  padding: 16px;
+}
+
+.errorText {
+  color: rgb(211, 47, 47);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+  text-align: left;
+  margin: 3px 14px;
+  align-self: flex-start;
+}
+
 /* ContactList.js */
 .contactList {
   border-radius: 10px;
   box-shadow: 2px 2px 10px #C9C3C7;
-  background-color: #F7F0F5;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 16px 16px 0;
+  margin: 32px 16px 0;
   padding: 0 16px;
 }
 
