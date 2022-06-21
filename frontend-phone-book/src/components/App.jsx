@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 
 import Header from './Header';
 import ContactList from './ContactList';
+import Footer from './Footer';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Header />
       <ContactList />
       <ToastContainer />
+      <Footer />
     </>
   );
 }

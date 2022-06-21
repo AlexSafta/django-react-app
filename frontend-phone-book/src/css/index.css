@@ -36,3 +36,16 @@ code {
   margin: 32px 16px 0;
   padding: 0 16px;
 }
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  margin: 32px 0 16px;
+}
+
+.credits {
+  margin: 0 auto;
+  font-family: 'Pacifico', cursive;
+  font-size: 12px;
+}
