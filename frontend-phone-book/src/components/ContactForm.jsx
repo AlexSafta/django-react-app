@@ -5,9 +5,11 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 import { validContactRules } from '../util';
+import { IconButton } from '@mui/material';
+import ResetIcon from '@mui/icons-material/Restore';
 
 const ContactForm = ({ loading, onSubmit, addForm }) => {
-  const { control, register, handleSubmit, formState: { errors, isValid }, setValue } = useForm({
+  const { control, register, handleSubmit, formState: { errors, isValid }, setValue, reset } = useForm({
     defaultValues: {
       name: '',
       phoneNumber: '',
@@ -26,9 +28,18 @@ const ContactForm = ({ loading, onSubmit, addForm }) => {
     }
   }, [isValid, onSubmit]); 
 
+  const handleResetForm = useCallback(() => {
+    reset();
+  }, [reset]);
+
   return (
     <div className='contactFormWrapper'>
-      <p className='formTitle'>Add a contact</p>
+      <div className='titleWrapper'>
+        <p className='formTitle'>Add a contact</p>
+        <IconButton onClick={handleResetForm}>
+          <ResetIcon />
+        </IconButton>
+      </div>
       <form className='contactForm' onSubmit={handleSubmit(submitData)}>
         <Controller
           name="name"
