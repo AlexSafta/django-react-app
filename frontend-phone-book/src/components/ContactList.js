@@ -14,7 +14,6 @@ const ContactList = () => {
     })
       .then((response)=>{
         const data = response.data;
-        console.log('contacts', data);
         setContacts(data);
         setLoading(false);
       })
