@@ -4,11 +4,9 @@ import ContactList from './ContactList';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ContactList />
-      </header>
-    </div>
+    <>
+      <ContactList />
+    </>
   );
 }
 
